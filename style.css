@@ -5,6 +5,12 @@
   }
   
   /* FLEXBOX */
+  .flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;    
+  }
   
   .flex-item-header {
     display: flex;
@@ -82,7 +88,7 @@
     color: black;
   }
   
-  /* formato footer */
+  /* FORMATO FOOTER */
   footer div ul {
     list-style: none;
   }
