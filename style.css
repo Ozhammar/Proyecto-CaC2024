@@ -45,6 +45,7 @@
 }
 
 /* GRID AREAS */
+
 #header-banner {
   grid-area: banner;
   justify-content: space-evenly;
@@ -156,4 +157,21 @@ footer div ul li a {
 
 /* MEDIA  QUERY */
 @media screen {
+}
+.card-img-top{
+  width: 200px;
+  height: 220px;
+  
+}
+
+.card-text{
+  font-size: small;
+}
+.card-list{
+  font-size: small;
+}
+
+/* SUBRAYADO DE PALABRAS */
+.subrayado {
+  text-decoration: underline;
 }
