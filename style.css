@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;  
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* FLEXBOX */
@@ -39,6 +39,7 @@
   grid-template-areas:
     "banner banner banner"
     "navbar navbar navbar"
+    "sidebar   .      ."
     "site    marcas   redes"
     " copyright     copyright   copyright";
 }
@@ -51,6 +52,9 @@
 }
 #header-navbar {
   grid-area: navbar;
+}
+#sidebar {
+  grid-area: sidebar;
 }
 #footer-site {
   grid-area: site;
@@ -94,24 +98,22 @@ form {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  margin: 1rem ;
+  margin: 1rem;
   width: 50vw;
   background-color: rgba(161, 161, 161, 0.418);
   border-radius: 15%;
 }
-
-form div{
+form div {
   display: flex;
   flex-flow: column wrap;
   margin: 0.5rem;
-  
 }
-form input{
+form input {
   height: 5vh;
   width: 15vw;
   border-radius: 25px;
 }
-form textarea{
+form textarea {
   resize: none;
   width: auto;
 }
@@ -153,24 +155,43 @@ footer div ul li a {
     border-radius: 10%;
     border: 3px solid black;  
   } */
-
-/* MEDIA  QUERY */
-@media screen {
-}
-.card-img-top{
+.card-img-top {
   width: 200px;
   height: 220px;
-  
 }
-
-.card-text{
+.card-text {
   font-size: small;
 }
-.card-list{
+.card-list {
   font-size: small;
 }
-
 /* SUBRAYADO DE PALABRAS */
 .subrayado {
   text-decoration: underline;
+}
+
+/* FORMATO SIDEBAR */
+nav.menu-lateral{
+  background-color: rgba(133, 133, 133, 0.1);
+  display: grid;
+  justify-items: center;
+  padding: 1rem;
+  
+}
+nav.menu-lateral ul{
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+nav.menu-lateral ul li ul{
+  padding: 0;
+}
+
+nav.menu-lateral a{
+  text-decoration: none;
+  color: black;
+}
+
+/* MEDIA  QUERY */
+@media screen {
 }
