@@ -171,23 +171,29 @@ footer div ul li a {
 }
 
 /* FORMATO SIDEBAR */
-nav.menu-lateral{
+nav.menu-lateral {
   background-color: rgba(133, 133, 133, 0.1);
   display: grid;
   justify-items: center;
   padding: 1rem;
-  
 }
-nav.menu-lateral ul{
+nav.menu-lateral ul {
   list-style: none;
   padding: 0;
   margin-bottom: 0;
 }
-nav.menu-lateral ul li ul{
+.submenu-noshow {
+  display: none;
+}
+.submenu-show {
+  display: block;
+}
+
+nav.menu-lateral ul li ul {
   padding: 0;
 }
 
-nav.menu-lateral a{
+nav.menu-lateral a {
   text-decoration: none;
   color: black;
 }
