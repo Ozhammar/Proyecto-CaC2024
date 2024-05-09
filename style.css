@@ -176,18 +176,37 @@ nav.menu-lateral {
   display: grid;
   justify-items: center;
   padding: 1rem;
+  width: 200px;
 }
 nav.menu-lateral ul {
   list-style: none;
   padding: 0;
   margin-bottom: 0;
+  width: 100%;
 }
 .submenu-noshow {
   display: none;
 }
 .submenu-show {
-  display: block;
+  display: block; 
 }
+.rotate{
+  transform: rotate(-180deg);
+}
+
+nav.menu-lateral ul li a{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+
+}
+
+
+nav.menu-lateral ul li a:hover i{
+  transform: rotate(-180deg);
+  
+}
+
 
 nav.menu-lateral ul li ul {
   padding: 0;
