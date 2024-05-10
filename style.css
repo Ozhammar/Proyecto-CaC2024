@@ -39,7 +39,7 @@
   grid-template-areas:
     "banner banner banner"
     "navbar navbar navbar"
-    "sidebar   .      ."
+    "sidebar   grilla      grilla"
     "site    marcas   redes"
     " copyright     copyright   copyright";
 }
@@ -73,6 +73,10 @@
 }
 #card-body {
   grid-area: cardbody;
+}
+#grilla-productos{
+  grid-area: grilla;
+  width: 70vw;
 }
 
 /* FORMATO HEADER */
@@ -133,28 +137,11 @@ footer div ul li a {
   width: 1.5rem;
 }
 
-/* FORMATO CARD
-  .card {
-     DIMENSIONES Y BACKGROUND 
-    width: 200px;
-    height: 220px;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 0.5rem;
-    /* GRID 
-    grid-template-areas:
-      "productimg"
-      "cardbody";
-    justify-items: center;
-    border-radius: 5%;
-      
-  }
-  
-  .c-img{
-    max-width: 80%;
-    height: auto;
-    border-radius: 10%;
-    border: 3px solid black;  
-  } */
+/* FORMATO CARD */
+
+.card{
+  width: 20vw;
+}
 .card-img-top {
   width: 200px;
   height: 220px;
@@ -165,10 +152,10 @@ footer div ul li a {
 .card-list {
   font-size: small;
 }
-/* SUBRAYADO DE PALABRAS */
+/* SUBRAYADO DE PALABRAS
 .subrayado {
   text-decoration: underline;
-}
+} */
 
 /* FORMATO SIDEBAR */
 nav.menu-lateral {
@@ -176,7 +163,8 @@ nav.menu-lateral {
   display: grid;
   justify-items: center;
   padding: 1rem;
-  width: 200px;
+  width: 13vw;
+  height: max-content;
 }
 nav.menu-lateral ul {
   list-style: none;
