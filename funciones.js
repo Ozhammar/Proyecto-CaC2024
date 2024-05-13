@@ -30,7 +30,7 @@ function numeroRandom() {
 //FUNCION QUE GENERA UN ID EN BASE A LA FUNCION numeroRandom(), ACCEDE A LOS ELEMENTOS DE CLASE CARD, PARA LUEGO RECORRERLOS Y ACCEDER A CADA ELEMENTO DE IMG Y H6, EN EL ELEMENTO IMG INSERTA EL ATRIBUTO ID Y EN EL ELEMENTO H6 INSERTA EL PRECIO.
 function idRandom() {
   let cards = document.getElementsByClassName("card");
-  for (var i = 0; i < cards.length; i++) {
+  for (let i = 0; i < cards.length; i++) {
     let img = cards[i].querySelector("img");
     if (img) {
       let randomId = numeroRandom();
@@ -43,5 +43,3 @@ function idRandom() {
     }
   }
 };
-
-//hola como estas
