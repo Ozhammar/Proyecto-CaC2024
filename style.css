@@ -39,7 +39,6 @@
   grid-template-areas:
     "banner banner banner"
     "navbar navbar navbar"
-    "carousel carousel carousel "
     "sidebar   grilla      grilla"
     "site    marcas   redes"
     " copyright     copyright   copyright";
@@ -78,9 +77,6 @@
 #grilla-productos{
   grid-area: grilla;
   width: 70vw;
-}
-#carousel{
-  grid-area: carousel;
 }
 
 /* FORMATO HEADER */
@@ -156,18 +152,6 @@ footer div ul li a {
 .card-list {
   font-size: small;
 }
-
-/* FORMATO CAROUSEL */
-
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev{
-  display: flex !important;
-  justify-content: space-evenly;
-
-}
-
-
 /* SUBRAYADO DE PALABRAS
 .subrayado {
   text-decoration: underline;
