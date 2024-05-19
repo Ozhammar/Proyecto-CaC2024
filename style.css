@@ -84,8 +84,11 @@
 }
 
 /* FORMATO HEADER */
+
 header div img {
-  border-radius: 50%;
+  border-radius: 0%;
+  text-align: center;
+  
 }
 header nav ul {
   display: flex;
@@ -222,5 +225,143 @@ nav.menu-lateral a {
 }
 
 /* MEDIA  QUERY */
-@media screen {
+@media only screen and (max-width: 768px) {
+
+  .flex-item-footer-marcas {
+    width: 11vw;
+    display: flex;
+    gap: 50%;
+    flex-flow: row;
+    justify-content: center;
+  }
+
+  .flex-item-footer-marcas ul, .flex-item-c ul{
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-item-c p{
+    margin: 0;
+  }
+
+  .card {
+    height: 60vh !important;    
+  }
+  
+  .card h5{
+    height: 7vh;
+    overflow: hidden;
+        
+  }
+  
+  #grilla-productos{
+    gap: 1rem;
+    margin-left: 2.5vw;
+  }
+
+  nav.menu-lateral{
+    position: sticky;
+    top: 25vh;
+    width: 25vw;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .flex-item-footer-marcas {
+    width: 11vw;
+    display: flex;
+    gap: 50%;
+    flex-flow: row;
+    justify-content: center;
+  }
+
+  .flex-item-footer-marcas ul, .flex-item-c ul{
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-item-c p{
+    margin: 0;
+  }
+
+  .card {
+    height: 60vh !important;    
+  }
+  
+  .card h5{
+    height: 7vh;
+    overflow: hidden;
+        
+  }
+  
+  #grilla-productos{
+    gap: 1rem;
+    margin-left: 2.5vw;
+  }
+
+  nav.menu-lateral{
+    position: sticky;
+    top: 25vh;
+    width: 25vw;
+    
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .flex-item-footer-marcas {
+    width: 11vw;
+    display: flex;
+    gap: 50%;
+    flex-flow: row;
+    justify-content: center;
+  }
+
+  .flex-item-footer-marcas ul, .flex-item-c ul{
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-item-c p{
+    margin: 0;
+  }
+
+  .card {
+    height: 60vh !important;    
+  }
+  
+  .card h5{
+    height: 7vh;
+    overflow: hidden;
+        
+  }
+  
+  #grilla-productos{
+    gap: 1rem;
+    margin-left: 2.5vw;
+  }
+
+  nav.menu-lateral{
+    position: sticky;
+    top: 25vh;
+    width: 25vw;
+    
+  }
+}
+
+/* COLOR HEADER*/
+header{
+  background-color: #007b00;
+  
 }
