@@ -578,6 +578,25 @@ h3{
   box-shadow: 2px 2px 2px #929292;
 }
 
+/*Centrado de secciones*/
+.titulo_descripcion{
+  text-align: center;
+  font-style: bold;
+}
+
+/*Descripcion de texto y parrafos*/
+.descripcion_carrusel{
+  font-style: italic;
+  font-size: small;
+  text-align: justify;
+}
+
+
+
+
+
+
+
 /* MEDIA  QUERY */
 @media only screen and (max-width: 768px) {
 
