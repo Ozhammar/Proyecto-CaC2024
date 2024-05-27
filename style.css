@@ -251,6 +251,7 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #f8f9fa; /* Fondo claro para contraste */
+  box-shadow: inset 0px 15px 20px #02da0283, inset 0px -15px 20px #02da0283;
   padding: 1em;
   border-radius: 25px;
   /* margin-bottom: 1rem; */
@@ -576,6 +577,13 @@ h3 {
   text-align: justify;
 }
 
+.card div.text-center a.btn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+}
+
 /* MEDIA  QUERY */
 @media only screen and (max-width: 600px) {
   #header-navbar {
@@ -690,10 +698,12 @@ h3 {
     width: 100vw;
     margin: auto;
     gap: 2vh;
+    
   }
 
   .carousel-item.active div.card {
     width: 80vw;
+    margin: auto;
   }
   .bannerHotsale {
     margin: 0;
