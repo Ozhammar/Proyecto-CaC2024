@@ -733,7 +733,7 @@ h3 {
     align-items: center;
   }
 
-  nav.menu-lateral ul li:last-child{
+  #inicio{
     position: fixed;
     top: 90vh;
     left: 80vw;
