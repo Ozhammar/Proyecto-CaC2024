@@ -68,7 +68,5 @@ function validarFormulario(event){
     event.preventDefault();
     return false;   
   }
-
-
   return true;
 };
