@@ -1,0 +1,28 @@
+{% include 'header.html'%}
+
+  
+
+  <h2 class="fw-bold mb-4 text-uppercase">Login</h2>
+
+  <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+    <div class="form-outline form-white mb-4">
+      <input type="email" id="nombreUsuario" name="nombreUsuario" placeholder="Usuario"
+        class="form-control form-control-lg" [(ngModel)]="nombreUsuario" required />
+    </div>
+
+    <div class="form-outline form-white mb-4">
+      <input type="password" id="password" placeholder="Contraseña" class="form-control form-control-lg"
+        [(ngModel)="password" required name="password" />
+    </div>
+
+    <button class="btn btn-outline-light btn-lg px-5" type="submit"> Ingresar </button>
+    <button class="btn btn-outline-light btn-lg px-5" type="reset"> Reiniciar </button>
+    <br>
+    <a href="registro.html">Aun no tienes una cuenta? Registrate!</a>
+  </form>
+  
+  <button class="btn btn-danger" (click)="stepBack()">
+    REGRESAR
+  </button>
+  
+  {% include 'footer.html'%}
