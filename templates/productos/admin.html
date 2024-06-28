@@ -14,6 +14,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </head>
+
 <body>
   <header class="grid-container">
     <div id="header-banner" class="flex-item-r">
@@ -35,89 +36,113 @@
 
 
 
-{% include 'header-logged.html'%}
-<nav class="navbar navbar-expand navbar-light bg-light" id="header-navbar">
+  {% include 'header-logged.html'%}
+  <nav class="navbar navbar-expand navbar-light bg-light" id="header-navbar">
     <ul class="nav navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link active" href="#" aria-current="page">Stock <span class="visually-hidden">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Alta de Productos</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#" aria-current="page">Stock <span class="visually-hidden">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Alta de Productos</a>
+      </li>
     </ul>
-</nav>
+  </nav>
 
-<form class="form-inline" method="post" id="stockform" action="" enctype="multipart/form-data">
-   
+  <div class="table-responsive">
+    <table class="table table-success table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Previsualización</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="">
+          <td>Asus</td>
+          <td>Mother</td>
+          <td>150000</td>
+          <td>2</td>
+          <td><img>foto</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+  <form class="form-inline" method="post" id="stockform" action="" enctype="multipart/form-data">
+
     <div class="flex-container">
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre del Producto</label>
-            <input type="text"
-              class="form-control" name="nombre" id="nombre" placeholder="Nombre del producto">
-          </div>
-         
-          <div class="mb-3">
-             <label for="categoria" class="form-label">Categoria</label>
-             <select class="form-select form-select-lg" name="categoria" id="categoria" form="stockform">
-                 <option selected>Selecciona uno</option>
-                 <option value="HDD">Almacenamiento - HDD</option>
-                 <option value="SSD">Almacenamiento - SSD</option>
-                 <option value="SSDM2">Almacenamiento - SSD M2</option>
-                 <option value="BRONZE">Fuentes - BRONZE</option>
-                 <option value="GOLD">Fuentes - GOLD</option>
-                 <option value="GABINETE">Gabinetes</option>
-                 <option value="DDR4">Memoria Ram - DDR4</option>
-                 <option value="DDR5">Memoria Ram - DDR5</option>
-                 <option value="MICRO_INTEL">Microprocesadores - INTEL</option>
-                 <option value="MICRO_AMD">Microprocesadores - AMD</option>
-                 <option value="MOTHER_INTEL">Motherboards - INTEL</option>
-                 <option value="MOTHER_AMD">Motherboards - AMD</option>
-                 <option value="NOTEBOOK">Notebooks</option>
-                 <option value="GPU_NVIDIA">Placas de Video - NVIDIA</option>
-                 <option value="GPU_AMD">Placas de Video - AMD</option>
-                 <option value="REFRIGERACION_AIRE">Refrigeración - AIRE</option>
-                 <option value="REFRIGERACION_WATER">Refrigeración - WATER</option>           
-                </select>
-          </div>
-         
-         <div class="mb-3">
-           <label for="precio" class="form-label">Precio Unitario</label>
-           <span class="input-group-text">$</span>
-           <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio por unidad del producto">
-           
-         </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del Producto</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre del producto">
+      </div>
 
-         <div class="mb-3">
-           <label for="cantidad" class="form-label">Cantidad</label>
-           <input type="number"
-             class="form-control" min=1 name="cantidad" id="cantidad" placeholder="Cantidad de productos">
-         </div>
+      <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <select class="form-select form-select-lg" name="categoria" id="categoria" form="stockform">
+          <option selected>Selecciona uno</option>
+          <option value="HDD">Almacenamiento - HDD</option>
+          <option value="SSD">Almacenamiento - SSD</option>
+          <option value="SSDM2">Almacenamiento - SSD M2</option>
+          <option value="BRONZE">Fuentes - BRONZE</option>
+          <option value="GOLD">Fuentes - GOLD</option>
+          <option value="GABINETE">Gabinetes</option>
+          <option value="DDR4">Memoria Ram - DDR4</option>
+          <option value="DDR5">Memoria Ram - DDR5</option>
+          <option value="MICRO_INTEL">Microprocesadores - INTEL</option>
+          <option value="MICRO_AMD">Microprocesadores - AMD</option>
+          <option value="MOTHER_INTEL">Motherboards - INTEL</option>
+          <option value="MOTHER_AMD">Motherboards - AMD</option>
+          <option value="NOTEBOOK">Notebooks</option>
+          <option value="GPU_NVIDIA">Placas de Video - NVIDIA</option>
+          <option value="GPU_AMD">Placas de Video - AMD</option>
+          <option value="REFRIGERACION_AIRE">Refrigeración - AIRE</option>
+          <option value="REFRIGERACION_WATER">Refrigeración - WATER</option>
+        </select>
+      </div>
 
-         <div class="mb-3">
-           <label for="foto" class="form-label">Imagen del Producto</label>
-           <input type="file" class="form-control" name="foto" id="foto">
-         </div>
+      <div class="mb-3">
+        <label for="precio" class="form-label">Precio Unitario</label>
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio por unidad del producto">
+
+      </div>
+
+      <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" min=1 name="cantidad" id="cantidad"
+          placeholder="Cantidad de productos">
+      </div>
+
+      <div class="mb-3">
+        <label for="foto" class="form-label">Imagen del Producto</label>
+        <input type="file" class="form-control" name="foto" id="foto">
+      </div>
 
     </div>
 
- 
-
-
-
-
- <button type="submit" class="btn btn-primary">Submit</button>
- <button type="reset" class="btn btn-primary">Reset</button>
-
-
-</form>
-
-
-{% include 'footer.html'%}
 
 
 
 
 
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+
+
+  </form>
+
+
+  {% include 'footer.html'%}
 
 
 
@@ -139,56 +164,61 @@
 
 
 
-<footer class="grid-container">
+
+
+
+
+
+  <footer class="grid-container">
     <div id="footer-site" class="flex-item-c">
-        <h5>Site Map</h5>
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/productos.html">Productos</a></li>
-            <li><a href="/contacto.html">Contacto</a></li>
-        </ul>
+      <h5>Site Map</h5>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/productos.html">Productos</a></li>
+        <li><a href="/contacto.html">Contacto</a></li>
+      </ul>
     </div>
     <div id="footer-marcas" class="flex-item-c">
-        <h5>Nuestras Marcas</h5>
-        <div class="flex-item-footer-marcas">
-            <ul>
-                <li><a href="http://intel.com/" target="_blank">Intel</a></li>
-                <li><a href="http://amd.com/" target="_blank">AMD</a></li>
-                <li><a href="https://www.nvidia.com/" target="_blank">Nvidia</a></li>
-            </ul>
-            <ul>
-                <li><a href="https://rog.asus.com" target="_blank">ROG</a></li>
-                <li><a href="https://row.hyperx.com/" target="_blank">HyperX</a></li>
-                <li><a href="http://corsair.com" target="_blank">Corsair</a></li>
-            </ul>
-        </div>
+      <h5>Nuestras Marcas</h5>
+      <div class="flex-item-footer-marcas">
+        <ul>
+          <li><a href="http://intel.com/" target="_blank">Intel</a></li>
+          <li><a href="http://amd.com/" target="_blank">AMD</a></li>
+          <li><a href="https://www.nvidia.com/" target="_blank">Nvidia</a></li>
+        </ul>
+        <ul>
+          <li><a href="https://rog.asus.com" target="_blank">ROG</a></li>
+          <li><a href="https://row.hyperx.com/" target="_blank">HyperX</a></li>
+          <li><a href="http://corsair.com" target="_blank">Corsair</a></li>
+        </ul>
+      </div>
 
     </div>
     <div id="footer-redes" class="flex-item-c">
-        <h5>Nuestras Redes</h5>
-        <ul>
-            <li>
-                <a href="https://www.instagram.com" target="_blank"><img src="/static/Imagenes/instagram-new-2022-seeklogo.svg"
-                        alt="Instagram" class="logos-redes" /></a>
-            </li>
+      <h5>Nuestras Redes</h5>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com" target="_blank"><img
+              src="/static/Imagenes/instagram-new-2022-seeklogo.svg" alt="Instagram" class="logos-redes" /></a>
+        </li>
 
-            <li>
-                <a href="https://facebook.com" target="_blank"><img src="/static/Imagenes/facebook-seeklogo.svg" alt="Facebook"
-                        class="logos-redes" /></a>
-            </li>
+        <li>
+          <a href="https://facebook.com" target="_blank"><img src="/static/Imagenes/facebook-seeklogo.svg"
+              alt="Facebook" class="logos-redes" /></a>
+        </li>
 
-            <li>
-                <a href="https://chat.whatsapp.com/D9dpLXgB0z9IrGhmtQilHQ" target="_blank"><img
-                        src="/static/Imagenes/whatsapp-icon-seeklogo.svg" alt="Whatsapp" class="logos-redes" /></a>
-            </li>
+        <li>
+          <a href="https://chat.whatsapp.com/D9dpLXgB0z9IrGhmtQilHQ" target="_blank"><img
+              src="/static/Imagenes/whatsapp-icon-seeklogo.svg" alt="Whatsapp" class="logos-redes" /></a>
+        </li>
 
-        </ul>
+      </ul>
     </div>
     <div id="footer-copyright" class="flex-item-c">
-        <p>Codo a Codo 2024</p>
-        <p>Gabriel Aballay - Lucas Povolo</p>
+      <p>Codo a Codo 2024</p>
+      <p>Gabriel Aballay - Lucas Povolo</p>
     </div>
-</footer>
+  </footer>
 </body>
 
 </html>
