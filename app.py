@@ -1,5 +1,7 @@
 from flask import Flask,redirect,url_for,render_template,request
 from flask_mysqldb import MySQL
+from datetime import datetime
+import os
 
 app=Flask(__name__)
 
@@ -9,20 +11,11 @@ app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "stock_cac2024"
 mysql = MySQL(app)
 
-# sql ="INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `imagen`, `caraceristicas`) VALUES (NULL, '', '', '', '', '');"
-# conn = mysql.connect()
-# cursor = conn.cursor()
-# cursor.execute(sql)
-# conn.commit()
-
-
+CARPETA = os.path.join('uploads')
+app.config['CARPETA'] = CARPETA
 
 @app.route('/')
 def index():
-    sql ="INSERT INTO `productos` (`nombre`, `categoria`, `precio`, `imagen`, `caraceristicas`) VALUES ('i7', 'microprocesador', '50000', '', 'microprocesador intel caro');"
-    conn = mysql.connection.cursor()
-    conn.execute(sql)
-    mysql.connection.commit()
     return render_template('productos/index.html')
 
 @app.route('/contacto')
@@ -51,8 +44,98 @@ def admin():
     else:
         return render_template('/login.html')
         
+@app.route('/stock')
+def stock():
+    sql = "SELECT * FROM stock_cac2024.productos;"
+    
+    conn = mysql.connection.cursor()
+    conn.execute(sql)
+    productos = conn.fetchall()
+    return render_template('productos/stock.html', productos=productos)
 
+@app.route('/alta')
+def alta():
+    return render_template('productos/alta.html')
 
+@app.route('/crear', methods=['POST'])
+def crear():
+    _nombre = request.form['nombre']
+    _categoria = request.form['categoria']
+    _precio = request.form['precio']
+    _cantidad = request.form['cantidad']
+    _foto = request.files['foto']
+    
+    now = datetime.now()
+    tiempo = now.strftime("%Y%H%M%S%f")
+    
+    if _foto.filename != '':
+        nNomFoto = tiempo + _foto.filename
+        _foto.save("uploads/"+nNomFoto)
+    
+    
+    sql ="INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `cantidad`, `imagen`) VALUES (NULL, %s, %s, %s, %s, %s);"
+    datos = (_nombre, _categoria, _precio, _cantidad, nNomFoto)
+    
+    conn = mysql.connection.cursor()
+    conn.execute(sql,datos)
+    mysql.connection.commit()
+    return render_template('productos/alta.html')
+
+@app.route('/eliminar/<int:id>')
+def eliminar(id):
+    conn = mysql.connection.cursor()
+    
+    conn.execute("SELECT imagen FROM stock_cac2024.productos WHERE id=%s", (id,))
+    fila = conn.fetchall()
+    os.remove(os.path.join(app.config['CARPETA'], fila[0][0]))
+    
+    conn.execute("DELETE FROM stock_cac2024.productos WHERE id=%s", (id,))
+    mysql.connection.commit()
+    return redirect('/stock')
+
+@app.route('/editar/<int:id>')
+def editar(id):
+      
+    conn = mysql.connection.cursor()
+    conn.execute("SELECT * FROM stock_cac2024.productos WHERE id=%s;", (id,))
+    productos = conn.fetchall()
+    mysql.connection.commit()
+    
+    return render_template('productos/edit.html', productos=productos)
+
+@app.route('/update', methods=['POST'])
+def update():
+    _id = request.form['idproducto']
+    _nombre = request.form['nombre']
+    _categoria = request.form['categoria']
+    _precio = request.form['precio']
+    _cantidad = request.form['cantidad']
+    _foto = request.files['foto']
+        
+    
+    
+    conn = mysql.connection.cursor()
+    
+    now = datetime.now()
+    tiempo = now.strftime("%Y%H%M%S%f")
+    
+    if _foto.filename != '':
+        nNomFoto = tiempo + _foto.filename
+        _foto.save("uploads/"+nNomFoto)
+        conn.execute("SELECT imagen FROM stock_cac2024.productos WHERE id=%s", (_id,))
+        fila = conn.fetchall()
+        os.remove(os.path.join(app.config['CARPETA'], fila[0][0]))
+        conn.execute("UPDATE stock_cac2024.productos SET `imagen`=%s WHERE id=%s;", (nNomFoto, (_id,)))
+        mysql.connection.commit()
+        
+    sql = "UPDATE stock_cac2024.productos SET `nombre`=%s,`categoria`=%s,`precio`=%s,`cantidad`=%s,`imagen`=%s WHERE id=%s;"
+    datos = (_nombre, _categoria, _precio, _cantidad, nNomFoto, _id)
+        
+    conn.execute(sql, datos)
+    mysql.connection.commit()
+    return redirect('/stock')
+    
+    
 
 if __name__ == '__main__':
     #DEBUG is SET to TRUE. CHANGE FOR PROD
