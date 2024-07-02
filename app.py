@@ -100,6 +100,7 @@ def editar(id):
     conn.execute("SELECT * FROM stock_cac2024.productos WHERE id=%s;", (id,))
     productos = conn.fetchall()
     mysql.connection.commit()
+    print(productos)
     
     return render_template('productos/edit.html', productos=productos)
 
@@ -112,12 +113,16 @@ def update():
     _cantidad = request.form['cantidad']
     _foto = request.files['foto']
         
-    
-    
     conn = mysql.connection.cursor()
     
     now = datetime.now()
     tiempo = now.strftime("%Y%H%M%S%f")
+    
+    conn.execute("SELECT imagen FROM stock_cac2024.productos WHERE id=%s", (_id,))
+    nombrefetch=conn.fetchall()
+    nNomFoto = nombrefetch[0]
+    print(nNomFoto)
+    
     
     if _foto.filename != '':
         nNomFoto = tiempo + _foto.filename
@@ -127,7 +132,7 @@ def update():
         os.remove(os.path.join(app.config['CARPETA'], fila[0][0]))
         conn.execute("UPDATE stock_cac2024.productos SET `imagen`=%s WHERE id=%s;", (nNomFoto, (_id,)))
         mysql.connection.commit()
-        
+            
     sql = "UPDATE stock_cac2024.productos SET `nombre`=%s,`categoria`=%s,`precio`=%s,`cantidad`=%s,`imagen`=%s WHERE id=%s;"
     datos = (_nombre, _categoria, _precio, _cantidad, nNomFoto, _id)
         
