@@ -207,7 +207,8 @@ nav.menu-lateral ul {
   display: none;
 }
 .submenu-show {
-  display: block; 
+  display: flex;
+  justify-content: space-around; 
 }
 .rotate{
   transform: rotate(-180deg);
@@ -581,6 +582,18 @@ h3{
 .img-thumbnail{
   width: 5vw;
 }
+
+.latnav {
+  margin-top: 0.5vh;
+  margin-bottom: .5vh;
+}
+
+.btn-outline-primary{
+  margin-right: 0.5vh;
+}
+
+
+
 
 /* MEDIA  QUERY */
 @media only screen and (max-width: 768px) {

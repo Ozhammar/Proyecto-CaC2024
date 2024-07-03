@@ -27,14 +27,25 @@ def contacto():
 def experiencias():
     return render_template('/experiencias.html')
 
-@app.route('/productos')
+@app.route('/productos', methods=['GET'])
 def productos():
-    sql = "SELECT * FROM stock_cac2024.productos;"
+    try:
+        categoria = request.args.get('categoria')
+        conn = mysql.connection.cursor()
+        if categoria:
+            sql = "SELECT * FROM productos WHERE categoria = %s"
+            conn.execute(sql, (categoria,))
+        else:
+            sql = "SELECT * FROM productos"
+            conn.execute(sql)
+        productos = conn.fetchall()
+        conn.close()
+        return render_template('productos.html', productos=productos)
     
-    conn = mysql.connection.cursor()
-    conn.execute(sql)
-    productos = conn.fetchall()
-    return render_template('/productos.html', productos=productos)
+    except mysql.connector.Error as e:
+        return f"Error de base de datos: {e}", 500
+    except Exception as e:
+        return str(e), 500
 
 @app.route('/login')
 def login():
@@ -68,8 +79,6 @@ def admin():
         return render_template('productos/admin.html', image_path=image_path)
     else:
         return render_template('/login.html')
-    
-    
         
 @app.route('/stock')
 def stock():
