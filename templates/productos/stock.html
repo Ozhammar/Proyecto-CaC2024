@@ -28,7 +28,7 @@
             <td>{{productos[2]}}</td>
             <td>{{productos[3]}}</td>
             <td>{{productos[4]}}</td>
-            <td><img></td>
+            <td><img class="img-thumbnail" src="{{url_for('uploads', nombreImagen = productos[5])}}"></td>
             <td>
                 <a href="/eliminar/{{productos[0]}}">Eliminar</a> |
                 <a href="/editar/{{productos[0]}}">Editar</a>
