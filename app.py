@@ -1,5 +1,6 @@
-from flask import Flask,redirect,url_for,render_template,request
+from flask import Flask,redirect,url_for,render_template,request,send_from_directory
 from flask_mysqldb import MySQL
+import matplotlib.pyplot as plt
 from datetime import datetime
 import os
 
@@ -28,21 +29,47 @@ def experiencias():
 
 @app.route('/productos')
 def productos():
-    return render_template('/productos.html')
+    sql = "SELECT * FROM stock_cac2024.productos;"
+    
+    conn = mysql.connection.cursor()
+    conn.execute(sql)
+    productos = conn.fetchall()
+    return render_template('/productos.html', productos=productos)
 
 @app.route('/login')
 def login():
     return render_template('/login.html')
+
+def dataFromdb():
+    sql= "SELECT `categoria`, SUM(`cantidad`) as total_cantidad FROM `productos` GROUP BY `categoria`"
+    conn = mysql.connection.cursor()
+    conn.execute(sql)
+    resultado = conn.fetchall()
+    categorias = [row[0] for row in resultado]
+    cantidades = [row[1] for row in resultado]
+    return categorias, cantidades
 
 @app.route('/admin', methods=['POST'])
 def admin():
     usuario = request.form['user']
     pwd = request.form['password']
     
+    categorias, cantidades = dataFromdb()
+    plt.figure(figsize=(5, 5))
+    plt.pie(cantidades, labels=categorias, autopct='%1.1f%%')
+    plt.title('Stock por Categoria')
+    image_path = 'uploads/pie_chart.png'
+    plt.savefig(image_path)
+    plt.close()
+    
     if usuario == 'admin' and pwd == 'admin':
-        return render_template('productos/admin.html')
+        
+        
+        return render_template('productos/admin.html', image_path=image_path)
     else:
         return render_template('/login.html')
+    
+    
         
 @app.route('/stock')
 def stock():
@@ -139,6 +166,10 @@ def update():
     conn.execute(sql, datos)
     mysql.connection.commit()
     return redirect('/stock')
+
+@app.route('/uploads/<nombreImagen>')
+def uploads(nombreImagen):
+    return send_from_directory(app.config['CARPETA'], nombreImagen)
     
     
 
