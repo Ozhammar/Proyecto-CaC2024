@@ -578,6 +578,10 @@ h3{
   box-shadow: 2px 2px 2px #929292;
 }
 
+.img-thumbnail{
+  width: 5vw;
+}
+
 /* MEDIA  QUERY */
 @media only screen and (max-width: 768px) {
 
