@@ -18,7 +18,6 @@ function productName(id) {
   const regex = /\/([^\/]+)\.\w+$/;
   //let nombre busca por id, el src de la imagen y apica la limpieza
   let nombre = document.getElementById(id).getAttribute("src").match(regex)[1];
-  nombre = nombre.replace(/-/g, " ");
   //let titulo busca dentro del card el contenedor h5, y escribe como contenido html lo almacenado en la variable nombre
   let titulo = document.getElementById(id).nextElementSibling.firstElementChild;
   titulo.innerHTML = nombre;

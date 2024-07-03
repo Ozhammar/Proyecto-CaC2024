@@ -56,7 +56,7 @@
 #header-navbar {
   grid-area: navbar;
 }
-#promo {
+#promo{
   grid-area: promo;
 }
 #sidebar {
@@ -80,13 +80,13 @@
 #card-body {
   grid-area: cardbody;
 }
-#grilla-productos {
+#grilla-productos{
   grid-area: grilla;
   width: 70vw;
   margin-top: 2%;
   margin-bottom: 2%;
 }
-#carousel {
+#carousel{
   grid-area: carousel;
   margin-bottom: 1rem;
 }
@@ -97,6 +97,7 @@ header div img {
   border-radius: 0%;
   text-align: center;
   border-color: black;
+  
 }
 header nav ul {
   display: flex;
@@ -119,8 +120,10 @@ form {
   align-items: center;
   margin: 1rem;
   width: 30vw;
-  background-color: #007b0071;
+  background-color: #007b002f;
   border-radius: 25px;
+
+  
 }
 form div {
   display: flex;
@@ -154,7 +157,7 @@ footer div ul li a {
 
 /* FORMATO CARD */
 
-.card {
+.card{
   width: 20vw;
 }
 .card-img-top {
@@ -172,11 +175,17 @@ footer div ul li a {
 
 .carousel-item.active,
 .carousel-item-next,
-.carousel-item-prev {
+.carousel-item-prev{
   display: flex !important;
   justify-content: space-evenly;
-  align-items: flex-start;
+
 }
+
+
+/* SUBRAYADO DE PALABRAS
+.subrayado {
+  text-decoration: underline;
+} */
 
 /* FORMATO SIDEBAR */
 nav.menu-lateral {
@@ -198,19 +207,20 @@ nav.menu-lateral ul {
   display: none;
 }
 .submenu-show {
-  display: block;
+  display: block; 
 }
-.rotate {
+.rotate{
   transform: rotate(-180deg);
 }
 
-nav.menu-lateral ul li a {
+nav.menu-lateral ul li a{
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
+
 }
 
-.flex-item-info {
+.flex-item-info{
   margin: 0 2%;
   display: flex;
   flex-direction: column;
@@ -219,9 +229,12 @@ nav.menu-lateral ul li a {
   flex-wrap: wrap;
 }
 
-nav.menu-lateral ul li a:hover i {
+
+nav.menu-lateral ul li a:hover i{
   transform: rotate(-180deg);
+  
 }
+
 
 nav.menu-lateral ul li ul {
   padding: 0;
@@ -233,17 +246,19 @@ nav.menu-lateral a {
 }
 
 /* COLOR HEADER*/
-header {
+header{
   background-color: #007b00;
+  
 }
 
 /* COLOR FOOTER*/
-footer {
+footer{
   background-color: #007b00;
+  
 }
 
-body {
-  background-color: #f8f9fa;
+body{
+  background-color:#f8f9fa ;
 }
 
 /* Estilo para el nav */
@@ -251,12 +266,12 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #f8f9fa; /* Fondo claro para contraste */
-  box-shadow: inset 0px 15px 20px #02da0283, inset 0px -15px 20px #02da0283;
   padding: 1em;
   border-radius: 25px;
   /* margin-bottom: 1rem; */
-  margin: 0 5% 1rem;
+  margin: 0 5% 1rem
 }
+
 
 /* Estilo para los enlaces del nav */
 #header-navbar ul {
@@ -286,15 +301,9 @@ body {
 
 /* Animación de color para el logo */
 @keyframes colorChange {
-  0% {
-    filter: invert(0%);
-  } /* Negro */
-  50% {
-    filter: invert(100%);
-  } /* Blanco */
-  100% {
-    filter: invert(0%);
-  } /* Negro */
+  0% { filter: invert(0%); }  /* Negro */
+  50% { filter: invert(100%); } /* Blanco */
+  100% { filter: invert(0%); } /* Negro */
 }
 
 #header-banner img {
@@ -303,9 +312,10 @@ body {
   animation: colorChange 10s infinite;
 }
 
+
 /* Estilo para el footer */
 footer {
-  font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Cambia 'Arial' a la fuente que prefieras */
+  font-family:Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Cambia 'Arial' a la fuente que prefieras */
   background-color: #007b00; /* Fondo claro para contraste */
   padding: 1em;
   text-align: center;
@@ -320,7 +330,7 @@ footer {
 }
 
 #footer-marcas h5 {
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 1.5em;
   margin-bottom: 1em;
   text-transform: uppercase;
@@ -344,7 +354,7 @@ footer {
 .flex-item-footer-marcas a {
   text-decoration: none;
   color: #ffd700;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   transition: color 0.3s ease;
 }
 
@@ -361,7 +371,7 @@ footer {
 }
 
 #footer-site h5 {
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 1.5em;
   margin-bottom: 1em;
   text-transform: uppercase;
@@ -379,7 +389,7 @@ footer {
 #footer-site a {
   text-decoration: none;
   color: #ffd700;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   transition: color 0.3s ease;
 }
 
@@ -396,7 +406,7 @@ footer {
 }
 
 #footer-redes h5 {
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 1.5em;
   margin-bottom: 1em;
   text-transform: uppercase;
@@ -426,15 +436,17 @@ footer {
   transform: scale(1.2);
 }
 
+
 /* Estilo para el bannerHotsale */
-.bannerHotsale {
+.bannerHotsale{
   margin: 1%;
   width: 80vw;
   height: 30vh;
+  
 }
 
 /* CONTAINER EXPERIENCIAS*/
-.opiniones-container {
+.opiniones-container{
   text-align: center;
 }
 
@@ -547,13 +559,15 @@ footer {
   font-style: italic;
   color: #333;
 }
-h3 {
+h3{
   text-align: center;
   font-weight: bold;
   color: #333;
   border-radius: 3px;
+  
+  
 }
-.featured-review p {
+.featured-review p{
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
@@ -564,280 +578,69 @@ h3 {
   box-shadow: 2px 2px 2px #929292;
 }
 
-/*Centrado de secciones*/
-.titulo_descripcion {
-  text-align: center;
-  font-style: bold;
-}
-
-/*Descripcion de texto y parrafos*/
-.descripcion_carrusel {
-  font-style: italic;
-  font-size: small;
-  text-align: justify;
-}
-
-.card div.text-center a.btn {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-
-}
-
 /* MEDIA  QUERY */
-@media only screen and (max-width: 600px) {
-  #header-navbar {
-    display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    background-color: #f8f9fa;
-    padding: 0;
-    border-radius: 0px;
-    margin: 0 0 1rem;
-  }
+@media only screen and (max-width: 768px) {
 
-  #header-navbar ul {
-    width: 100vw;
+  .flex-item-footer-marcas {
+    width: 11vw;
     display: flex;
-    flex-flow: row wrap;
-  }
-
-  #header-navbar ul li {
-    display: flex;
-    width: 40vw;
+    gap: 50%;
+    flex-flow: row;
     justify-content: center;
   }
 
-  header div img:last-child {
+  header div img:last-child{
+    width: 85%;
+  }
+
+  .bannerHotsale{
+    margin: 1%;
     width: 80vw;
+    height: 20vh;    
   }
 
-  .grid-container {
-    display: grid;
-    width: 100%;
-    justify-content: space-around;
-    grid-template-areas:
-      "banner banner banner"
-      "navbar navbar navbar"
-      ". promo ."
-      "carousel carousel carousel"
-      "sidebar sidebar sidebar"
-      "grilla   grilla   grilla"
-      ". site ."
-      ". marcas ."
-      ". redes ."
-      " copyright     copyright   copyright";
-  }
-
-  #grilla-productos{
-    width: 100vw;
-    margin: 0;
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2vh;
-  }
-
-  #grilla-productos div.card{
-    width: 45vw;
-  }
-
-  .btn-primary{
-    margin-bottom: 1vh;
-    background-color: #007b00 !important;
-  }
-
-
-
-  #footer-site {
-    padding: 0.5em;
-  }
-
-  #footer-site ul {
-    display: flex;
-    flex-flow: row;
-    gap: 5vw;
-    margin: 0;
-  }
-
-  #footer-site h5 {
-    margin: 0;
-  }
-
-  #footer-marcas {
+  .flex-item-footer-marcas ul, .flex-item-c ul{
     padding: 0;
-  }
-
-  #footer-marcas h5,
-  #footer-marcas ul {
-    margin: 0;
-  }
-
-  .flex-item-footer-marcas {
-    flex-flow: nowrap;
-  }
-
-  #footer-redes {
-    padding: 0;
-  }
-
-  #footer-redes h5 {
-    margin: 0;
-  }
-  #footer-redes ul {
-    display: flex;
-    gap: 10vw;
-  }
-
-  #footer-copyright p {
-    margin: 0;
-  }
-
-  .carousel-item.active {
     display: flex;
     flex-flow: column;
-    width: 100vw;
-    margin: auto;
-    gap: 2vh;
-    
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-item-c p{
+    margin: 0;
   }
 
-  .carousel-item.active div.card {
-    width: 80vw;
-    margin: auto;
+  .card {
+    height: 70vh !important;    
   }
-  .bannerHotsale {
-    margin: 0;
-    margin-bottom: 2vh;
-    width: 100vw;
-    height: 20vh;
+  
+  .card h5{
+    height: 7vh;
+    overflow: hidden;
+        
+  }
+  
+  #grilla-productos{
+    gap: 1rem;
+    margin-left: 2.5vw;
   }
 
   nav.menu-lateral{
-    margin: 0 0 1vh 0;
-    width: 100vw;
-    padding: 1%;
-    background-color: #007b00;  
-  }
-
-  h5+ul{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2vw;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  nav.menu-lateral ul li{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-  }
-
-  #inicio{
-    position: fixed;
-    top: 90vh;
-    left: 80vw;
-    z-index: 1000;
-    padding: 0.1rem 0.2rem;
-    border: 1px solid #005000;
-    background-color: #007b00;
-  }
-
-
-
-  nav.menu-lateral ul li a i{
-    margin-left: 0.5rem;
-  }
-
-  #contacto{
-    width: 90vw;
-    margin: auto;
-    margin-top: 2vh;
+    position: sticky;
+    top: 25vh;
+    width: 25vw;
+    
   }
 
   form{
     width: 70vw;
   }
 
-  form h2{
-    margin-top: 1vh;
-  }
-
-  form input#imagen{
-    height: 7vh;
-  }
-
-
-
-
-
-  
-}
-
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-  .flex-item-footer-marcas {
-    width: 11vw;
-    display: flex;
-    gap: 50%;
-    flex-flow: row;
-    justify-content: center;
-  }
-
-  header div img:last-child {
-    width: 85%;
-  }
-
-  .bannerHotsale {
-    margin: 1%;
-    width: 80vw;
-    height: 20vh;
-  }
-
-  .flex-item-footer-marcas ul,
-  .flex-item-c ul {
-    padding: 0;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .flex-item-c p {
-    margin: 0;
-  }
-
-  .card {
-    /* height: 90vh !important; */
-    width: 30vw !important;
-  }
-
-  .card h5 {
-    height: 7vh;
-    overflow: hidden;
-  }
-
-  #grilla-productos {
-    gap: 1rem;
-    margin-left: 2.5vw;
-     width: 65vw;
-    margin: 2vh 0 0 0;
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2vh;
-  }
-
-  nav.menu-lateral {
-    position: sticky;
-    top: 25vh;
-    width: 25vw;
-  }
-
-  form {
-    width: 70vw;
-  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
   .flex-item-footer-marcas {
     width: 11vw;
     display: flex;
@@ -846,50 +649,51 @@ h3 {
     justify-content: center;
   }
 
-  header div img:last-child {
+  header div img:last-child{
     width: 85%;
   }
 
-  .bannerHotsale {
+  .bannerHotsale{
     margin: 1%;
     width: 80vw;
-    height: 20vh;
+    height: 20vh;    
   }
 
-  .flex-item-footer-marcas ul,
-  .flex-item-c ul {
+  .flex-item-footer-marcas ul, .flex-item-c ul{
     padding: 0;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
   }
-
-  .flex-item-c p {
+  
+  .flex-item-c p{
     margin: 0;
   }
 
   .card {
-    width: 30vw;
+    height: 60vh !important;    
   }
-
-  #grilla-productos {
+  
+  .card h5{
+    height: 7vh;
+    overflow: hidden;
+        
+  }
+  
+  #grilla-productos{
     gap: 1rem;
     margin-left: 2.5vw;
-    width: 65vw;
-    margin: 2vh 0 0 0;
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2vh;
   }
 
-  nav.menu-lateral {
+  nav.menu-lateral{
     position: sticky;
     top: 25vh;
     width: 25vw;
+    
   }
 
-  form {
+  form{
     width: 65vw;
   }
 
@@ -902,6 +706,7 @@ h3 {
     resize: none;
     width: auto;
   }
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -913,39 +718,40 @@ h3 {
     justify-content: center;
   }
 
-  .flex-item-footer-marcas ul,
-  .flex-item-c ul {
+  .flex-item-footer-marcas ul, .flex-item-c ul{
     padding: 0;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
   }
-
-  .flex-item-c p {
+  
+  .flex-item-c p{
     margin: 0;
   }
 
-  .card{
-    width: 30% !important;
+  .card {
+    height: 65vh !important;    
   }
-
-  #grilla-productos {
+  
+  .card h5{
+    height: 7vh;
+    overflow: hidden;
+        
+  }
+  
+  #grilla-productos{
     gap: 1rem;
     margin-left: 2.5vw;
-    width: 70vw;
-    margin: 2vh 0 0 0;
-    display: flex;
-    flex-flow: row wrap;
-    
   }
 
-  nav.menu-lateral {
+  nav.menu-lateral{
     position: sticky;
     top: 25vh;
     width: 25vw;
+    
   }
-  form {
+  form{
     width: 50vw;
   }
 
@@ -959,3 +765,6 @@ h3 {
     width: auto;
   }
 }
+
+
+
