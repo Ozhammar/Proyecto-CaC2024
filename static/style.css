@@ -181,19 +181,13 @@ footer div ul li a {
 
 }
 
-
-/* SUBRAYADO DE PALABRAS
-.subrayado {
-  text-decoration: underline;
-} */
-
 /* FORMATO SIDEBAR */
 nav.menu-lateral {
   background-color: rgba(133, 133, 133, 0.1);
   display: grid;
   justify-items: center;
   padding: 1rem;
-  width: 13vw;
+  width: 5vw;
   height: max-content;
   margin-left: 5%;
 }
@@ -208,7 +202,7 @@ nav.menu-lateral ul {
 }
 .submenu-show {
   display: flex;
-  justify-content: space-around; 
+  justify-content: flex-start; 
 }
 .rotate{
   transform: rotate(-180deg);
@@ -765,7 +759,7 @@ h3{
   nav.menu-lateral{
     position: sticky;
     top: 25vh;
-    width: 25vw;
+    width: 18vw;
     
   }
   form{
