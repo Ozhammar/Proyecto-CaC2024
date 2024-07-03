@@ -1,131 +1,19 @@
 {% include 'header.html'%}
-  <main class="grid-container">
-      <nav class="menu-lateral" id="sidebar">
-        <h5>CATEGORIAS</h5>
-        <ul>
-          <li>
-            <a href="#" id="toggle" onclick="toggleFunc(this.id)"
-              >Microprocesadores <i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li>
-                <a href="productos/productos-microprocesadores-intel.html"
-                  >Intel</a
-                >
-              </li>
-              <li>
-                <a href="productos/productos-microprocesadores-amd.html">AMD</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" id="toggle2" onclick="toggleFunc(this.id)"
-              >Motherboards<i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li>
-                <a href="productos/productos-motherboards-intel.html">Intel</a>
-              </li>
-              <li>
-                <a href="productos/productos-motherboards-amd.html">AMD</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" id="toggle3" onclick="toggleFunc(this.id)"
-              >Memoria Ram<i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li><a href="productos/productos-ram-ddr4.html">DDR4</a></li>
-              <li><a href="productos/productos-ram-ddr5.html">DDR5</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" id="toggle4" onclick="toggleFunc(this.id)"
-              >Almacenamiento<i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li>
-                <a href="productos/productos-almacenamiento-hdd.html">HDD</a>
-              </li>
-              <li>
-                <a href="productos/productos-almacenamiento-ssd.html">SSD</a>
-              </li>
-              <li>
-                <a href="productos/productos-almacenamiento-ssdm2.html"
-                  >SSD M2</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" id="toggle5" onclick="toggleFunc(this.id)"
-              >Placas de Video <i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li><a href="productos/productos-gpu-nvidia.html">NVIDIA</a></li>
-              <li><a href="productos/productos-gpu-amd.html">AMD</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" id="toggle6" onclick="toggleFunc(this.id)"
-              >Fuentes<i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li><a href="productos/productos-psu-bronze.html">BRONZE</a></li>
-              <li><a href="productos/productos-psu-gold.html">GOLD</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" id="toggle7" onclick="toggleFunc(this.id)"
-              >Refrigeración<i class="fa-solid fa-caret-down"></i
-            ></a>
-            <ul class="submenu-noshow">
-              <li>
-                <a href="productos/productos-refrigeracion-air.html"
-                  >AIR COOLING</a
-                >
-              </li>
-              <li>
-                <a href="productos/productos-refrigeracion-water.html"
-                  >WATER COOLING</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="productos/productos-gabinetes.html">Gabinetes</a>
-          </li>
-          <li>
-            <a href="productos/productos-notebooks.html">Notebooks</a>
-          </li>
-          <li>
-            <a href="#header-banner">Al Inicio</a>
-          </li>
-        </ul>
-      </nav>
+<main class="grid-container">
+{% include 'navbar.html'%}
 
-      <div id="grilla-productos" class="grid-container">
-
-        {% for productos in productos %}
-        <div class="card">
-          <img
-            src="{{url_for('uploads', nombreImagen = productos[5])}}"
-            class="card-img-top"          
-            alt="Imagen del producto"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{productos[1]}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">$ {{productos[3]}}</h6>
-            <a href="#" class="btn btn-primary">Comprar</a>
-            <a href="#" class="btn btn-secondary">Ver características</a>
-          </div>
-        </div>
-        {% endfor %}
-
+  <div id="grilla-productos" class="grid-container">
+    {% for productos in productos %}
+    <div class="card">
+      <img src="{{url_for('uploads', nombreImagen = productos[5])}}" class="card-img-top" alt="Imagen del producto" />
+      <div class="card-body">
+        <h5 class="card-title">{{productos[1]}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">$ {{productos[3]}}</h6>
+        <a href="#" class="btn btn-primary">Comprar</a>
+        <a href="#" class="btn btn-secondary">Ver características</a>
       </div>
-
-        
-  </main>
+    </div>
+    {% endfor %}
+  </div>
+</main>
 {% include 'footer.html'%}
-

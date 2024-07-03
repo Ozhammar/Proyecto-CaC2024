@@ -181,19 +181,13 @@ footer div ul li a {
 
 }
 
-
-/* SUBRAYADO DE PALABRAS
-.subrayado {
-  text-decoration: underline;
-} */
-
 /* FORMATO SIDEBAR */
 nav.menu-lateral {
   background-color: rgba(133, 133, 133, 0.1);
   display: grid;
   justify-items: center;
   padding: 1rem;
-  width: 13vw;
+  width: 5vw;
   height: max-content;
   margin-left: 5%;
 }
@@ -207,7 +201,8 @@ nav.menu-lateral ul {
   display: none;
 }
 .submenu-show {
-  display: block; 
+  display: flex;
+  justify-content: flex-start; 
 }
 .rotate{
   transform: rotate(-180deg);
@@ -582,6 +577,18 @@ h3{
   width: 5vw;
 }
 
+.latnav {
+  margin-top: 0.5vh;
+  margin-bottom: .5vh;
+}
+
+.btn-outline-primary{
+  margin-right: 0.5vh;
+}
+
+
+
+
 /* MEDIA  QUERY */
 @media only screen and (max-width: 768px) {
 
@@ -752,7 +759,7 @@ h3{
   nav.menu-lateral{
     position: sticky;
     top: 25vh;
-    width: 25vw;
+    width: 18vw;
     
   }
   form{
