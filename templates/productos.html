@@ -1,0 +1,19 @@
+{% include 'header.html'%}
+<main class="grid-container">
+  {% include 'navbar.html'%}
+
+  <div id="grilla-productos" class="grid-container">
+    {% for productos in productos %}
+    <div class="card">
+      <img src="{{url_for('uploads', nombreImagen = productos[5])}}" class="card-img-top" alt="Imagen del producto" />
+      <div class="card-body">
+        <h5 class="card-title">{{productos[1]}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">$ {{productos[3]}}</h6>
+        <a href="#" class="btn btn-primary">Comprar</a>
+        <a href="#" class="btn btn-secondary">Ver características</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% include 'footer.html'%}

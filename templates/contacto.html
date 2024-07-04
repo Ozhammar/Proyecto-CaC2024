@@ -1,0 +1,72 @@
+{% include 'header.html'%}
+<main>
+    <div id="contacto" class="flex-container">
+
+        <address>
+
+            <p>
+                E-mail: <a href="mailto:ventas@xxxx.com.ar">ventas@xxxx.com.ar</a>
+            </p>
+            <p>
+                Horario de Atención: Lunes a viernes de 9:30 a 18:30 hs. Sábados de
+                10 a 13 hs.
+            </p>
+            <p>
+                Soporte:
+                <a href="mailto:soporte@xxxx.com.ar">soporte@xxxx.com.ar</a>
+            </p>
+            <p>
+                Whatsapp:
+                <a href="https://chat.whatsapp.com/D9dpLXgB0z9IrGhmtQilHQ" target="_blank">+54 9 11-3333-4444</a>
+            </p>
+        </address>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d290.24882401153025!2d-58.38894454903159!3d-34.60945655114088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccadb555cc3ed%3A0x7b43a612985b0d4!2sArgentina%20km%200!5e0!3m2!1ses-419!2sar!4v1713797532505!5m2!1ses-419!2sar"
+            width="500" height="350" style="border: 1px solid black" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="flex-container">
+        <form id="contactForm" onsubmit="return validarFormulario(event)">
+            <h2 class="text-center mb-4">Escribinos..</h2>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Formato: 11-87452365">
+
+            </div>
+            <div class="mb-3">
+                <label for="razon" class="form-label">Razón del contacto</label>
+                <select class="form-select" id="razon" name="razon">
+                    <option value="">Seleccione una opción...</option>
+                    <option value="software">Consulta sobre software</option>
+                    <option value="hardware">Consulta sobre hardware</option>
+                    <option value="postVenta">Servicio post-venta</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen adjunta</label>
+                <input type="file" class="form-control" id="imagen" name="imagen">
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Dejanos una breve reseña de tu consulta</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="5"></textarea>
+            </div>
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="reset" class="btn btn-secondary">Reiniciar</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% include 'footer.html'%}
