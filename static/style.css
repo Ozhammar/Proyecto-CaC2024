@@ -632,6 +632,25 @@ h3 {
   margin-right: 0.5vh;
 }
 
+.table{
+  width: 90% !important;
+  text-align: center;
+}
+
+td{
+  vertical-align: middle;
+  
+}
+
+.table-responsive{
+  display: flex;
+  justify-content: center;
+}
+
+#stockform{
+  display: flex;
+  width: 90vw;
+}
 
 
 

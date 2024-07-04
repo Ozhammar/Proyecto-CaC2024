@@ -14,7 +14,7 @@
   </ul>
 </nav>
 <div class="table-responsive">
-  <table class="table table-success table-hover">
+  <table class="table table-light table-hover">
     <thead>
       <tr>
         <th scope="col">Nombre</th>
@@ -22,20 +22,29 @@
         <th scope="col">Precio</th>
         <th scope="col">Cantidad</th>
         <th scope="col">Previsualización</th>
-        <th scope="col">Acciones</th>
+        <th scope="col2">Acciones</th>
       </tr>
     </thead>
     <tbody>
       {% for productos in productos %}
-      <tr class="">
+      <tr>
         <td>{{productos[1]}}</td>
         <td>{{productos[2]}}</td>
         <td>$ {{productos[3]}}</td>
         <td>{{productos[4]}}</td>
         <td><img class="img-thumbnail" src="{{url_for('uploads', nombreImagen = productos[5])}}"></td>
         <td>
-          <a href="/eliminar/{{productos[0]}}">Eliminar</a> |
-          <a href="/editar/{{productos[0]}}">Editar</a>
+          <a href="/editar/{{productos[0]}}">
+            <button type="button" class="btn btn-warning btn-sm ">
+              Editar
+            </button></a>
+
+
+          <a href="/eliminar/{{productos[0]}}">
+            <button type="button" class="btn btn-danger btn-sm ">
+              Eliminar
+            </button></a>
+
         </td>
       </tr>
       {% endfor %}

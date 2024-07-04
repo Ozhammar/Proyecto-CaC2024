@@ -74,8 +74,6 @@ def admin():
     plt.close()
     
     if usuario == 'admin' and pwd == 'admin':
-        
-        
         return render_template('productos/admin.html', image_path=image_path)
     else:
         return render_template('/login.html')
