@@ -1,19 +1,24 @@
-from flask import Flask,redirect,url_for,render_template,request,send_from_directory
+from flask import Flask,redirect,url_for,render_template,request,send_from_directory,session
 from flask_mysqldb import MySQL
 import matplotlib.pyplot as plt
 from datetime import datetime
 import os
 
-app=Flask(__name__)
 
+app=Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "stock_cac2024"
+
+
 mysql = MySQL(app)
+
 
 CARPETA = os.path.join('uploads')
 app.config['CARPETA'] = CARPETA
+
 
 @app.route('/')
 def index():
@@ -79,7 +84,37 @@ def admin():
         return render_template('productos/admin.html', image_path=image_path)
     else:
         return render_template('/login.html')
+    
+@app.route('/registro.html', methods=['GET','POST'])
+def registro():
+    if request.method == 'POST':
+        usuario = request.form['usuario']
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        email = request.form['email']
+        password = request.form['password']
+        password_conf = request.form['password_conf']
+    
+    
+    
+        conn = mysql.connection.cursor()
+
+        conn.execute("SELECT * FROM usuario WHERE usuario =%s",(usuario,))
+        existing_user = conn.fetchone()
         
+    
+        conn.execute(
+            "INSERT INTO usuario (usuario, nombre, apellido, email, password, password_conf) VALUES (%s,%s, %s, %s, %s, %s)",
+                (usuario, nombre, apellido, email, password, password_conf)
+        )
+        mysql.connection.commit()
+        conn.close()
+
+        return redirect(url_for('login'))
+    return render_template('productos/registro.html')
+
+
+
 @app.route('/stock')
 def stock():
     sql = "SELECT * FROM stock_cac2024.productos;"

@@ -1,35 +1,38 @@
 {% include 'header.html'%}
 
-<form method="POST" action="/admin">
-  <div class="form-outline form-white mb-4">
-    <input
-      type="text"
-      name="user"
-      placeholder="Usuario"
-      class="form-control form-control-lg"
-      required
-    />
-  </div>
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+    <form method="POST" action="/admin" class="text-center border border-light p-5">
+        <div class="form-outline form-white mb-4">
+            <input
+              type="text"
+              name="user"
+              placeholder="Usuario"
+              class="form-control form-control-lg"
+              required
+            />
+        </div>
 
-  <div class="form-outline form-white mb-4">
-    <input
-      type="password"
-      name="password"
-      placeholder="Contraseña"
-      class="form-control form-control-lg"
-      required
-    />
-  </div>
+        <div class="form-outline form-white mb-4">
+            <input
+              type="password"
+              name="password"
+              placeholder="Contraseña"
+              class="form-control form-control-lg"
+              required
+            />
+        </div>
 
-  <button class="btn btn-outline-light btn-lg px-5" type="submit">
-    Ingresar
-  </button>
-  <button class="btn btn-outline-light btn-lg px-5" type="reset">
-    Reiniciar
-  </button>
-  <br />
-  <a href="registro.html">Aun no tienes una cuenta? Registrate!</a>
-</form>
+        <button class="btn btn-outline-light btn-lg px-5 me-2" type="submit">
+            Ingresar
+        </button>
+        <button class="btn btn-outline-light btn-lg px-5 me-2" type="reset">
+            Reiniciar
+        </button>
+        <br />
+        <a href="registro.html" class="text-white">¿Aún no tienes una cuenta? ¡Regístrate!</a>
+    </form>
+</div>
 
-<button class="btn btn-danger" (click)="stepBack()">REGRESAR</button>
+<button class="btn btn-danger mt-3" (click)="stepBack()">REGRESAR</button>
+
 {% include 'footer.html'%}
