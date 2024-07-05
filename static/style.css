@@ -181,6 +181,8 @@ footer div ul li a {
 
 .card {
   width: 20vw;
+  margin: 0.5vw;
+  margin-bottom: 0.5vw;
 }
 
 .card-img-top {
@@ -690,6 +692,7 @@ td{
 
   .card {
     height: 70vh !important;
+    
   }
 
   .card h5 {
