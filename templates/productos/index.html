@@ -1,14 +1,22 @@
 {% include 'header.html'%}
 <main class="grid-container">
-  <img src="/static/Imagenes/1654036028212-1100x300.png" alt="Logo de la empresa." id="promo" class="bannerHotsale" />
+  <img
+    src="/static/Imagenes/1654036028212-1100x300.png"
+    alt="Logo de la empresa."
+    id="promo"
+    class="bannerHotsale"
+  />
 
- 
-  <div class="carousel slide " id="carousel" data-bs-ride="carousel">
-    <div class="carousel-inner">
+  <div class="carousel slide" id="carousel" data-bs-ride="carousel">
+    <!-- <div class="carousel-inner"> -->
       <div class="carousel-item active flex-item-r">
         {% for productos in productos %}
         <div class="card">
-          <img src="{{url_for('uploads', nombreImagen = productos[5])}}" class="card-img-top" alt="Imagen del producto" />
+          <img
+            src="{{url_for('uploads', nombreImagen = productos[5])}}"
+            class="card-img-top"
+            alt="Imagen del producto"
+          />
           <div class="card-body">
             <h5 class="card-title">{{productos[1]}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">$ {{productos[3]}}</h6>
@@ -17,15 +25,8 @@
           </div>
         </div>
         {% endfor %}
-
-      
-      
-     
-    </div>
+      </div>
+    <!-- </div> -->
   </div>
-
-
-
-
 </main>
 {% include 'footer.html'%}
