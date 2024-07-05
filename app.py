@@ -1,6 +1,7 @@
 from flask import Flask,redirect,url_for,render_template,request,send_from_directory
 from flask_mysqldb import MySQL
 import matplotlib.pyplot as plt
+import numpy as np
 from datetime import datetime
 import random
 import os
@@ -78,10 +79,12 @@ def admin():
     pwd = request.form['password']
     
     categorias, cantidades = dataFromdb()
-    plt.figure(figsize=(5, 5))
-    plt.pie(cantidades, labels=categorias, autopct='%1.1f%%')
+    plt.figure(figsize=(15, 5))
+    colors = plt.cm.tab20(np.linspace(0, 1, len(categorias)))
+    plt.barh(categorias, cantidades, color=colors)
     plt.title('Stock por Categoria')
-    image_path = 'uploads/pie_chart.png'
+    plt.xlabel('Cantidad')
+    image_path = 'uploads/bar_chart.png'
     plt.savefig(image_path)
     plt.close()
     
