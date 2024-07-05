@@ -2,7 +2,8 @@
 <nav class="navbar navbar-expand navbar-light bg-light" id="header-navbar">
   <ul class="nav navbar-nav">
     <li class="nav-item">
-      <a class="nav-link active" href="{{url_for('stock')}}" aria-current="page">Stock <span class="visually-hidden">(current)</span></a>
+      <a class="nav-link active" href="{{url_for('stock')}}" aria-current="page">Stock <span
+          class="visually-hidden">(current)</span></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{url_for('alta')}}">Alta de Productos</a>
@@ -13,77 +14,79 @@
 {% for productos in productos %}
 <form class="form-inline" method="post" id="stockform" action="/update" enctype="multipart/form-data">
 
-    <div class="flex-container">
+  <div class="flex-container">
 
-        <div class="mb-3">
-          
-            <input
-                type="hidden"
-                class="form-control"
-                name="idproducto"
-                id="idproducto"
-                value="{{productos[0]}}"
-                placeholder=""
-            />
-        </div>
-        
-        
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre del Producto</label>
-        <input type="text" class="form-control" name="nombre" value="{{productos[1]}}" id="nombre" placeholder="Nombre del producto">
-      </div>
+    <div class="mb-3">
 
-      <div class="mb-3">
-        <label for="categoria" class="form-label">Categoría</label>
-        <select class="form-select form-select-lg" name="categoria" id="categoria" form="stockform">
-            <option value="">Selecciona uno</option>
-            <option value="HDD" {% if productos[2] == 'HDD' %} selected {% endif %}>Almacenamiento - HDD</option>
-            <option value="SSD" {% if productos[2] == 'SSD' %} selected {% endif %}>Almacenamiento - SSD</option>
-            <option value="SSDM2" {% if productos[2] == 'SSDM2' %} selected {% endif %}>Almacenamiento - SSD M2</option>
-            <option value="BRONZE" {% if productos[2] == 'BRONZE' %} selected {% endif %}>Fuentes - BRONZE</option>
-            <option value="GOLD" {% if productos[2] == 'GOLD' %} selected {% endif %}>Fuentes - GOLD</option>
-            <option value="GABINETE" {% if productos[2] == 'GABINETE' %} selected {% endif %}>Gabinetes</option>
-            <option value="DDR4" {% if productos[2] == 'DDR4' %} selected {% endif %}>Memoria Ram - DDR4</option>
-            <option value="DDR5" {% if productos[2] == 'DDR5' %} selected {% endif %}>Memoria Ram - DDR5</option>
-            <option value="MICRO_INTEL" {% if productos[2] == 'MICRO_INTEL' %} selected {% endif %}>Microprocesadores - INTEL</option>
-            <option value="MICRO_AMD" {% if productos[2] == 'MICRO_AMD' %} selected {% endif %}>Microprocesadores - AMD</option>
-            <option value="MOTHER_INTEL" {% if productos[2] == 'MOTHER_INTEL' %} selected {% endif %}>Motherboards - INTEL</option>
-            <option value="MOTHER_AMD" {% if productos[2] == 'MOTHER_AMD' %} selected {% endif %}>Motherboards - AMD</option>
-            <option value="NOTEBOOK" {% if productos[2] == 'NOTEBOOK' %} selected {% endif %}>Notebooks</option>
-            <option value="GPU_NVIDIA" {% if productos[2] == 'GPU_NVIDIA' %} selected {% endif %}>Placas de Video - NVIDIA</option>
-            <option value="GPU_AMD" {% if productos[2] == 'GPU_AMD' %} selected {% endif %}>Placas de Video - AMD</option>
-            <option value="REFRIGERACION_AIRE" {% if productos[2] == 'REFRIGERACION_AIRE' %} selected {% endif %}>Refrigeración - AIRE</option>
-            <option value="REFRIGERACION_WATER" {% if productos[2] == 'REFRIGERACION_WATER' %} selected {% endif %}>Refrigeración - WATER</option>
-        </select>
-    </div>
-
-      <div class="mb-3">
-        <label for="precio" class="form-label">Precio Unitario</label>
-        <span class="input-group-text">$</span>
-        <input type="number" class="form-control" name="precio" value="{{productos[3]}}" id="precio" placeholder="Precio por unidad del producto">
-
-      </div>
-
-      <div class="mb-3">
-        <label for="cantidad" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" min=1 name="cantidad" value="{{productos[4]}}" id="cantidad"
-          placeholder="Cantidad de productos">
-      </div>
-
-      <div class="mb-3">
-        <label for="foto" class="form-label">Imagen del Producto</label>
-        <input type="file" class="form-control" name="foto" value="{{productos[5]}}" id="foto">
-      </div>
-
+      <input type="hidden" class="form-control" name="idproducto" id="idproducto" value="{{productos[0]}}"
+        placeholder="" />
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="{{url_for('stock')}}"><button type="button" class="btn btn-danger">Cancelar</button></a>
-    
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del Producto</label>
+      <input type="text" class="form-control" name="nombre" value="{{productos[1]}}" id="nombre"
+        placeholder="Nombre del producto">
+    </div>
+
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoría</label>
+      <select class="form-select form-select-lg" name="categoria" id="categoria" form="stockform">
+        <option value="">Selecciona uno</option>
+        <option value="HDD" {% if productos[2]=='HDD' %} selected {% endif %}>Almacenamiento - HDD</option>
+        <option value="SSD" {% if productos[2]=='SSD' %} selected {% endif %}>Almacenamiento - SSD</option>
+        <option value="SSDM2" {% if productos[2]=='SSDM2' %} selected {% endif %}>Almacenamiento - SSD M2</option>
+        <option value="BRONZE" {% if productos[2]=='BRONZE' %} selected {% endif %}>Fuentes - BRONZE</option>
+        <option value="GOLD" {% if productos[2]=='GOLD' %} selected {% endif %}>Fuentes - GOLD</option>
+        <option value="GABINETE" {% if productos[2]=='GABINETE' %} selected {% endif %}>Gabinetes</option>
+        <option value="DDR4" {% if productos[2]=='DDR4' %} selected {% endif %}>Memoria Ram - DDR4</option>
+        <option value="DDR5" {% if productos[2]=='DDR5' %} selected {% endif %}>Memoria Ram - DDR5</option>
+        <option value="MICRO_INTEL" {% if productos[2]=='MICRO_INTEL' %} selected {% endif %}>Microprocesadores - INTEL
+        </option>
+        <option value="MICRO_AMD" {% if productos[2]=='MICRO_AMD' %} selected {% endif %}>Microprocesadores - AMD
+        </option>
+        <option value="MOTHER_INTEL" {% if productos[2]=='MOTHER_INTEL' %} selected {% endif %}>Motherboards - INTEL
+        </option>
+        <option value="MOTHER_AMD" {% if productos[2]=='MOTHER_AMD' %} selected {% endif %}>Motherboards - AMD</option>
+        <option value="NOTEBOOK" {% if productos[2]=='NOTEBOOK' %} selected {% endif %}>Notebooks</option>
+        <option value="GPU_NVIDIA" {% if productos[2]=='GPU_NVIDIA' %} selected {% endif %}>Placas de Video - NVIDIA
+        </option>
+        <option value="GPU_AMD" {% if productos[2]=='GPU_AMD' %} selected {% endif %}>Placas de Video - AMD</option>
+        <option value="REFRIGERACION_AIRE" {% if productos[2]=='REFRIGERACION_AIRE' %} selected {% endif %}>
+          Refrigeración - AIRE</option>
+        <option value="REFRIGERACION_WATER" {% if productos[2]=='REFRIGERACION_WATER' %} selected {% endif %}>
+          Refrigeración - WATER</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio Unitario</label>
+      <span class="input-group-text">$</span>
+      <input type="number" class="form-control" name="precio" value="{{productos[3]}}" id="precio"
+        placeholder="Precio por unidad del producto">
+
+    </div>
+
+    <div class="mb-3">
+      <label for="cantidad" class="form-label">Cantidad</label>
+      <input type="number" class="form-control" min=1 name="cantidad" value="{{productos[4]}}" id="cantidad"
+        placeholder="Cantidad de productos">
+    </div>
+
+    <div class="mb-3">
+      <label for="foto" class="form-label">Imagen del Producto</label>
+      <input type="file" class="form-control" name="foto" value="{{productos[5]}}" id="foto">
+    </div>
+
+  </div>
 
 
-  </form>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a href="{{url_for('stock')}}"><button type="button" class="btn btn-danger">Cancelar</button></a>
+
+
+
+</form>
 {% endfor %}
 
 

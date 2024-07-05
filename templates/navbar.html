@@ -1,118 +1,137 @@
 <nav class="menu-lateral" id="sidebar">
-    <h5>CATEGORIAS</h5>
-    <ul>
-      <li>
-        <a id="toggle" onclick="toggleFunc(this.id)">
-          <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
-        Microprocesadores
-          </button><i class="fa-solid fa-caret-down"></i>
+  <h5>CATEGORIAS</h5>
+  <ul>
+    <li>
+      <a id="toggle" onclick="toggleFunc(this.id)">
+        <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false"
+          autocomplete="off">
+          Microprocesadores
+        </button><i class="fa-solid fa-caret-down"></i>
+      </a>
+      <ul class="submenu-noshow">
+        <li>
+          <a href="{{url_for('productos', categoria ='MICRO_INTEL')}}">
+            <button type="button" class="btn btn-outline-primary">INTEL</button>
           </a>
-        <ul class="submenu-noshow">
-          <li>
-            <a href="{{url_for('productos', categoria ='MICRO_INTEL')}}">        
-              <button type="button" class="btn btn-outline-primary">INTEL</button>           
-            </a>
-          </li>
-          <li>
-            <a href="{{url_for('productos', categoria ='MICRO_AMD')}}">
-              <button type="button" class="btn btn-outline-primary" >AMD</button>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#" id="toggle2" onclick="toggleFunc(this.id)">
-          <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
-            Motherboards
-              </button><i class="fa-solid fa-caret-down"></i></a>
-        <ul class="submenu-noshow">
-          <li>
-            <a href="{{url_for('productos', categoria ='MOTHER_INTEL')}}"><button type="button" class="btn btn-outline-primary">INTEL</button> </a>
-          </li>
-          <li>
-            <a href="{{url_for('productos', categoria ='MOTHER_AMD')}}"><button type="button" class="btn btn-outline-primary">AMD</button>  </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#" id="toggle3" onclick="toggleFunc(this.id)"><button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+        </li>
+        <li>
+          <a href="{{url_for('productos', categoria ='MICRO_AMD')}}">
+            <button type="button" class="btn btn-outline-primary">AMD</button>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" id="toggle2" onclick="toggleFunc(this.id)">
+        <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false"
+          autocomplete="off">
+          Motherboards
+        </button><i class="fa-solid fa-caret-down"></i></a>
+      <ul class="submenu-noshow">
+        <li>
+          <a href="{{url_for('productos', categoria ='MOTHER_INTEL')}}"><button type="button"
+              class="btn btn-outline-primary">INTEL</button> </a>
+        </li>
+        <li>
+          <a href="{{url_for('productos', categoria ='MOTHER_AMD')}}"><button type="button"
+              class="btn btn-outline-primary">AMD</button> </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" id="toggle3" onclick="toggleFunc(this.id)"><button type="button" class="btn btn-primary latnav"
+          data-bs-toggle="button" aria-pressed="false" autocomplete="off">
           Memoria Ram
-            </button><i class="fa-solid fa-caret-down"></i></a>
-        <ul class="submenu-noshow">
-          <li><a href="{{url_for('productos', categoria ='DDR4')}}"><button type="button" class="btn btn-outline-primary">DDR4</button>  </a></li>
-          <li><a href="{{url_for('productos', categoria ='DDR5')}}"><button type="button" class="btn btn-outline-primary">DDR5</button>  </a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#" id="toggle4" onclick="toggleFunc(this.id)">   <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+        </button><i class="fa-solid fa-caret-down"></i></a>
+      <ul class="submenu-noshow">
+        <li><a href="{{url_for('productos', categoria ='DDR4')}}"><button type="button"
+              class="btn btn-outline-primary">DDR4</button> </a></li>
+        <li><a href="{{url_for('productos', categoria ='DDR5')}}"><button type="button"
+              class="btn btn-outline-primary">DDR5</button> </a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" id="toggle4" onclick="toggleFunc(this.id)"> <button type="button" class="btn btn-primary latnav"
+          data-bs-toggle="button" aria-pressed="false" autocomplete="off">
           Almacenamiento
-            </button><i class="fa-solid fa-caret-down"></i></a>
-        <ul class="submenu-noshow">
-          <li>
-            <a href="{{url_for('productos', categoria ='HDD')}}"><button type="button" class="btn btn-outline-primary">HDD</button>  </a>
-          </li>
-          <li>
-            <a href="{{url_for('productos', categoria ='SSD')}}"><button type="button" class="btn btn-outline-primary">SSD</button>  </a>
-          </li>
-          <li>
-            <a href="{{url_for('productos', categoria ='SSDM2')}}"><button type="button" class="btn btn-outline-primary">SSD M2</button>  </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#" id="toggle5" onclick="toggleFunc(this.id)">   <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+        </button><i class="fa-solid fa-caret-down"></i></a>
+      <ul class="submenu-noshow">
+        <li>
+          <a href="{{url_for('productos', categoria ='HDD')}}"><button type="button"
+              class="btn btn-outline-primary">HDD</button> </a>
+        </li>
+        <li>
+          <a href="{{url_for('productos', categoria ='SSD')}}"><button type="button"
+              class="btn btn-outline-primary">SSD</button> </a>
+        </li>
+        <li>
+          <a href="{{url_for('productos', categoria ='SSDM2')}}"><button type="button"
+              class="btn btn-outline-primary">SSD M2</button> </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" id="toggle5" onclick="toggleFunc(this.id)"> <button type="button" class="btn btn-primary latnav"
+          data-bs-toggle="button" aria-pressed="false" autocomplete="off">
           Placas de Video
-            </button><i
-            class="fa-solid fa-caret-down"></i></a>
-        <ul class="submenu-noshow">
-          <li><a href="{{url_for('productos', categoria ='GPU_NVIDIA')}}"><button type="button" class="btn btn-outline-primary">NVIDIA</button>  </a></li>
-          <li><a href="{{url_for('productos', categoria ='GPU_AMD')}}"><button type="button" class="btn btn-outline-primary">AMD</button>  </a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#" id="toggle6" onclick="toggleFunc(this.id)">   <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+        </button><i class="fa-solid fa-caret-down"></i></a>
+      <ul class="submenu-noshow">
+        <li><a href="{{url_for('productos', categoria ='GPU_NVIDIA')}}"><button type="button"
+              class="btn btn-outline-primary">NVIDIA</button> </a></li>
+        <li><a href="{{url_for('productos', categoria ='GPU_AMD')}}"><button type="button"
+              class="btn btn-outline-primary">AMD</button> </a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" id="toggle6" onclick="toggleFunc(this.id)"> <button type="button" class="btn btn-primary latnav"
+          data-bs-toggle="button" aria-pressed="false" autocomplete="off">
           Fuentes
-            </button><i class="fa-solid fa-caret-down"></i></a>
-        <ul class="submenu-noshow">
-          <li><a href="{{url_for('productos', categoria ='BRONZE')}}"><button type="button" class="btn btn-outline-primary">BRONZE</button>  </a></li>
-          <li><a href="{{url_for('productos', categoria ='GOLD')}}"><button type="button" class="btn btn-outline-primary">GOLD</button>  </a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#" id="toggle7" onclick="toggleFunc(this.id)">   <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+        </button><i class="fa-solid fa-caret-down"></i></a>
+      <ul class="submenu-noshow">
+        <li><a href="{{url_for('productos', categoria ='BRONZE')}}"><button type="button"
+              class="btn btn-outline-primary">BRONZE</button> </a></li>
+        <li><a href="{{url_for('productos', categoria ='GOLD')}}"><button type="button"
+              class="btn btn-outline-primary">GOLD</button> </a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" id="toggle7" onclick="toggleFunc(this.id)"> <button type="button" class="btn btn-primary latnav"
+          data-bs-toggle="button" aria-pressed="false" autocomplete="off">
           Refrigeración
-            </button><i class="fa-solid fa-caret-down"></i></a>
-        <ul class="submenu-noshow">
-          <li>
-            <a href="{{url_for('productos', categoria ='REFRIGERACION_AIRE')}}"><button type="button" class="btn btn-outline-primary">AIR COOLING</button>  </a>
-          </li>
-          <li>
-            <a href="{{url_for('productos', categoria ='REFRIGERACION_WATER')}}"><button type="button" class="btn btn-outline-primary">WATER COOLING</button>  </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="{{url_for('productos', categoria ='GABINETE')}}">   <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
+        </button><i class="fa-solid fa-caret-down"></i></a>
+      <ul class="submenu-noshow">
+        <li>
+          <a href="{{url_for('productos', categoria ='REFRIGERACION_AIRE')}}"><button type="button"
+              class="btn btn-outline-primary">AIR COOLING</button> </a>
+        </li>
+        <li>
+          <a href="{{url_for('productos', categoria ='REFRIGERACION_WATER')}}"><button type="button"
+              class="btn btn-outline-primary">WATER COOLING</button> </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="{{url_for('productos', categoria ='GABINETE')}}"> <button type="button" class="btn btn-primary latnav">
           Gabinetes
-            </button></a>
+        </button></a>
+    </li>
+    <li>
+      <a href="{{url_for('productos', categoria ='NOTEBOOK')}}"> <button type="button" class="btn btn-primary latnav">
+          Notebooks
+        </button></a>
+    </li>
+    <ul class="submenu-show">
+      <li>
+        <a href="#header-banner"> <button type="button" class="btn btn-secondary latnav" d>
+            Al Inicio
+          </button></a>
       </li>
       <li>
-        <a href="{{url_for('productos', categoria ='NOTEBOOK')}}">   <button type="button" class="btn btn-primary latnav" data-bs-toggle="button" aria-pressed="false" autocomplete="off">
-          Notebooks
-            </button></a>
+        </a> <a href="{{url_for('productos')}}"> <button type="button" class="btn btn-danger latnav" d>
+            Limpiar
+          </button></a>
       </li>
-      <ul class="submenu-show">
-        <li>
-          <a href="#header-banner">   <button type="button" class="btn btn-secondary latnav" d>
-            Al Inicio
-              </button></a>
-        </li>
-        <li>
-        </a> <a href="{{url_for('productos')}}">   <button type="button" class="btn btn-danger latnav" d>
-                Limpiar
-                  </button></a>
-        </li>
-        </ul>
- 
     </ul>
-  </nav>
+
+  </ul>
+</nav>
