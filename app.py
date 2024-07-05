@@ -20,10 +20,6 @@ CARPETA = os.path.join('uploads')
 app.config['CARPETA'] = CARPETA
 
 
-@app.route('/')
-def index():
-    return render_template('productos/index.html')
-
 @app.route('/contacto')
 def contacto():
     return render_template('/contacto.html')
@@ -79,8 +75,6 @@ def admin():
     plt.close()
     
     if usuario == 'admin' and pwd == 'admin':
-        
-        
         return render_template('productos/admin.html', image_path=image_path)
     else:
         return render_template('/login.html')
