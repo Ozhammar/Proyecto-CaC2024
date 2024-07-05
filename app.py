@@ -1,23 +1,39 @@
-from flask import Flask,redirect,url_for,render_template,request,send_from_directory
+from flask import Flask,redirect,url_for,render_template,request,send_from_directory,session
 from flask_mysqldb import MySQL
 import matplotlib.pyplot as plt
+import numpy as np
 from datetime import datetime
+import random
 import os
 
-app=Flask(__name__)
 
+app=Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "stock_cac2024"
+
+
 mysql = MySQL(app)
+
 
 CARPETA = os.path.join('uploads')
 app.config['CARPETA'] = CARPETA
 
 @app.route('/')
 def index():
-    return render_template('productos/index.html')
+    sql = "SELECT id FROM `productos`;"
+    conn = mysql.connection.cursor()
+    conn.execute(sql)
+    ids = conn.fetchall()
+    ids_carry = list(tuple(random.randint(ids[0][0], ids[-1][-1]) for _ in range(9)))
+    conn.execute("SELECT * FROM productos WHERE id IN %s", (ids_carry,))
+    productos = conn.fetchall()
+    conn.close()
+       
+    
+    return render_template('productos/index.html', productos=productos)
 
 @app.route('/contacto')
 def contacto():
@@ -58,6 +74,7 @@ def dataFromdb():
     resultado = conn.fetchall()
     categorias = [row[0] for row in resultado]
     cantidades = [row[1] for row in resultado]
+    conn.close()
     return categorias, cantidades
 
 @app.route('/admin', methods=['POST'])
@@ -66,10 +83,12 @@ def admin():
     pwd = request.form['password']
     
     categorias, cantidades = dataFromdb()
-    plt.figure(figsize=(5, 5))
-    plt.pie(cantidades, labels=categorias, autopct='%1.1f%%')
+    plt.figure(figsize=(15, 5))
+    colors = plt.cm.tab20(np.linspace(0, 1, len(categorias)))
+    plt.barh(categorias, cantidades, color=colors)
     plt.title('Stock por Categoria')
-    image_path = 'uploads/pie_chart.png'
+    plt.xlabel('Cantidad')
+    image_path = 'uploads/bar_chart.png'
     plt.savefig(image_path)
     plt.close()
     
@@ -77,7 +96,37 @@ def admin():
         return render_template('productos/admin.html', image_path=image_path)
     else:
         return render_template('/login.html')
+    
+@app.route('/registro.html', methods=['GET','POST'])
+def registro():
+    if request.method == 'POST':
+        usuario = request.form['usuario']
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        email = request.form['email']
+        password = request.form['password']
+        password_conf = request.form['password_conf']
+    
+    
+    
+        conn = mysql.connection.cursor()
+
+        conn.execute("SELECT * FROM usuario WHERE usuario =%s",(usuario,))
+        existing_user = conn.fetchone()
         
+    
+        conn.execute(
+            "INSERT INTO usuario (usuario, nombre, apellido, email, password, password_conf) VALUES (%s,%s, %s, %s, %s, %s)",
+                (usuario, nombre, apellido, email, password, password_conf)
+        )
+        mysql.connection.commit()
+        conn.close()
+
+        return redirect(url_for('login'))
+    return render_template('productos/registro.html')
+
+
+
 @app.route('/stock')
 def stock():
     sql = "SELECT * FROM stock_cac2024.productos;"
@@ -85,6 +134,7 @@ def stock():
     conn = mysql.connection.cursor()
     conn.execute(sql)
     productos = conn.fetchall()
+    conn.close()
     return render_template('productos/stock.html', productos=productos)
 
 @app.route('/alta')
@@ -113,6 +163,7 @@ def crear():
     conn = mysql.connection.cursor()
     conn.execute(sql,datos)
     mysql.connection.commit()
+    conn.close()
     return render_template('productos/alta.html')
 
 @app.route('/eliminar/<int:id>')
@@ -125,6 +176,7 @@ def eliminar(id):
     
     conn.execute("DELETE FROM stock_cac2024.productos WHERE id=%s", (id,))
     mysql.connection.commit()
+    conn.close()
     return redirect('/stock')
 
 @app.route('/editar/<int:id>')
@@ -134,6 +186,7 @@ def editar(id):
     conn.execute("SELECT * FROM stock_cac2024.productos WHERE id=%s;", (id,))
     productos = conn.fetchall()
     mysql.connection.commit()
+    conn.close()
     print(productos)
     
     return render_template('productos/edit.html', productos=productos)
@@ -172,6 +225,7 @@ def update():
         
     conn.execute(sql, datos)
     mysql.connection.commit()
+    conn.close()
     return redirect('/stock')
 
 @app.route('/uploads/<nombreImagen>')

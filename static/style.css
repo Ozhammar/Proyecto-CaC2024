@@ -103,7 +103,7 @@
 
 #carousel {
   grid-area: carousel;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
 }
 
 /* FORMATO HEADER */
@@ -140,8 +140,6 @@ form {
   width: 30vw;
   background-color: #007b002f;
   border-radius: 25px;
-
-
 }
 
 form div {
@@ -181,6 +179,8 @@ footer div ul li a {
 
 .card {
   width: 20vw;
+  margin: 0.5vw;
+  margin-bottom: 0.5vw;
 }
 
 .card-img-top {
@@ -203,6 +203,8 @@ footer div ul li a {
 .carousel-item-prev {
   display: flex !important;
   justify-content: space-evenly;
+  width: 80vw;
+  margin-right: 0;
 
 }
 
@@ -356,14 +358,13 @@ footer {
   /* Cambia 'Arial' a la fuente que prefieras */
   background-color: #007b00;
   /* Fondo claro para contraste */
-  padding: 1em;
+  padding: 0.5em;
   text-align: center;
 }
 
 /* Estilo para el footer marcas */
 #footer-marcas {
   text-align: center;
-  padding: 2em;
   background-color: #007b00;
   color: #fff;
 }
@@ -404,7 +405,6 @@ footer {
 /* Estilo para el footer site map */
 #footer-site {
   text-align: center;
-  padding: 2em;
   background-color: #007b00;
   color: #fff;
 }
@@ -439,7 +439,6 @@ footer {
 /* Estilo para el footer redes */
 #footer-redes {
   text-align: center;
-  padding: 2em;
   background-color: #007b00;
   color: #fff;
 }
@@ -690,6 +689,7 @@ td{
 
   .card {
     height: 70vh !important;
+    
   }
 
   .card h5 {
